@@ -51,8 +51,7 @@
 
             android:padding="3dp"
             android:text="play"
-            android:textColor="@color/white"
-          />
+            android:textColor="@color/white" />
 
 
         <Button
