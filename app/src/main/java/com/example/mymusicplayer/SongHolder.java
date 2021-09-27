@@ -29,7 +29,10 @@ public class SongHolder extends RecyclerView.ViewHolder {
         btnDelete = itemView.findViewById(R.id.btnDelete);
     }
 
-    public void setData(ResponseDTO responseDTO){
-        Glide.with(imageSong).load(responseDTO.getResults()).into(imageSong);
+    public void setData(ResultsDTO resultsDTO){
+        Glide.with(imageSong).load(resultsDTO.getPreviewUrl()).into(imageSong);
+        songName.setText(resultsDTO.getTrackId());
+        artistName.setText(resultsDTO.getArtistId());
+
     }
 }
