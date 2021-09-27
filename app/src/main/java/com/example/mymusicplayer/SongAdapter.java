@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+
 
 public class SongAdapter extends RecyclerView.Adapter<SongHolder> {
-    ArrayList<ResultsDTO> arrayList = new ArrayList<ResultsDTO>();
+    ResultsDTO arrayList = new ResultsDTO();
 
-    public SongAdapter(ArrayList<ResultsDTO> arrayList) {
+    public SongAdapter(ResultsDTO arrayList) {
         this.arrayList = arrayList;
     }
 

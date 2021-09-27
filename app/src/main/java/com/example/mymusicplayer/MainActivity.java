@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ImageButton idBtnSearch;
     ProgressBar progressBar;
-    ArrayList<ResultsDTO> arrayList = new ArrayList<>();
+    ResultsDTO arrayList;
 
 
 
