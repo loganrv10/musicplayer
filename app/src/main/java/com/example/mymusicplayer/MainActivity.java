@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ComponentName;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,7 +23,19 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ImageButton idBtnSearch;
     ProgressBar progressBar;
-    ResultsDTO arrayList;
+     List<ResultsDTO> arrayList ;
+    private final ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            MusicService.MusicBinder musicBinder = (MusicService.MusicBinder) iBinder;
+            MusicService musicService = musicBinder.getMusicService();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+
+        }
+    };
 
 
 
@@ -47,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         apiservice.getPost("postid").enqueue(new Callback<ResultsDTO>() {
             @Override
             public void onResponse(Call<ResultsDTO> call, Response<ResultsDTO> response) {
-                arrayList = response.body();
+                arrayList = (List<ResultsDTO>) response.body();
                 setRecycleView();
 
             }

@@ -6,7 +6,7 @@ import android.media.MediaPlayer;
 import android.os.Binder;
 
 
-public class MusicService extends Service {
+class MusicService extends Service {
     private MediaPlayer mediaPlayer;
     int songName;
     public MusicService() {
